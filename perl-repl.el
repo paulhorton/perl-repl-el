@@ -12,15 +12,19 @@
 
 ;; WARNING: This is a work in progress.
 ;; The goal is to build simple comint derived mode to run a Perl REPL.
-;; So far I've only used it with re.pl although in shouldn't be
-;; difficult to run it with Reply or perl -de 0
+;;
+;; The `perl-repl-file-path' user-option identify the name of a Perl REPL
+;; program.  That can be a script that executes "" perl -de 0"" or can be
+;; something like "re.pl".    The default is "re.pl"
 
 (require 'comint)
 (require 'cperl-mode)
 (require 'rx)
 
-(defvar perl-repl-file-path "re.pl"
-  "Path to the program used by `perl-repl'")
+(defcustom perl-repl-file-path "re.pl"
+  "Path to the program used by `perl-repl'"
+  :group 'perl
+  :type 'string)
 
 (defvar perl-repl-arguments '())
 
