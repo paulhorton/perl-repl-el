@@ -21,9 +21,13 @@
 (require 'cperl-mode)
 (require 'rx)
 
+(defgroup perl-repl nil
+  "Perl REPL control."
+  :group 'perl)
+
 (defcustom perl-repl-file-path "re.pl"
   "Path to the program used by `perl-repl'"
-  :group 'perl
+  :group 'perl-repl
   :type 'string)
 
 (defvar perl-repl-arguments '())
