@@ -43,7 +43,7 @@
   (concat "*" perl--repl-buffer-name/raw "*"))
 
 (defun perl-repl ()
-  "Run an inferior instance of `re.pl' inside Emacs."
+  "Run an inferior instance of a Perl REPL inside Emacs."
   (interactive)
   (let* ((perl-repl-program perl-repl-file-path)
 	 (buffer (get-buffer-create perl--repl-buffer-name)))
