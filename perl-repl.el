@@ -17,6 +17,18 @@
 ;; program.  That can be a script that executes "" perl -de 0"" or can be
 ;; something like "re.pl".    The default is "re.pl"
 
+;;; History
+
+;; Apr, 2018  Uploaded to gitlab by Francisco Jurado quicoju.
+;; As far as I (PH) know, Franciso Jurado is the author.
+;;
+;; Oct, 2024  Pierre-Rouleau made minor changes related to customize
+;;            and perl-repl-file-path.
+;;
+;; Sep, 2025  Paul Horton enabled lexical binding and made minor changes
+;;            to allow warning free byte compilation on emacs 30.
+
+
 (require 'comint)
 (require 'cperl-mode)
 (require 'rx)
