@@ -73,10 +73,14 @@
   (set (make-local-variable 'paragraph-start) perl-repl-prompt-regexp)
   (perl--repl-hook-cperl-keys))
 
-(defun perl--repl-hook-cperl-keys ()
-  (cperl-define-key (kbd "C-c C-c") 'perl-send-expression)
-  (cperl-define-key (kbd "C-c C-r") 'perl-send-region)
-  (cperl-define-key (kbd "C-c C-l") 'perl-send-line))
+
+;; Function perl--repl-hook-cperl-keys commented out PH20250913
+;; `cperl-define-key' seems not to be defined in current version of cperl-mode
+;; (defun perl--repl-hook-cperl-keys ()
+;;   (cperl-define-key (kbd "C-c C-c") 'perl-send-expression)
+;;   (cperl-define-key (kbd "C-c C-r") 'perl-send-region)
+;;   (cperl-define-key (kbd "C-c C-l") 'perl-send-line))
+
 
 (defun perl-send-region (start end)
   "Send the current region (if any) to the Perl-REPL."
