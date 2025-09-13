@@ -83,15 +83,14 @@
   (set (make-local-variable 'font-lock-defaults)
        '(perl-repl-font-lock-keywords t))
   (set (make-local-variable 'paragraph-start) perl-repl-prompt-regexp)
-  (perl--repl-hook-cperl-keys))
+  ;;  (perl--repl-hook-cperl-keys);;  Setting up these bindings should pry be optional PH20250913.
+  )
 
 
-;; Function perl--repl-hook-cperl-keys commented out PH20250913
-;; `cperl-define-key' seems not to be defined in current version of cperl-mode
-;; (defun perl--repl-hook-cperl-keys ()
-;;   (cperl-define-key (kbd "C-c C-c") 'perl-send-expression)
-;;   (cperl-define-key (kbd "C-c C-r") 'perl-send-region)
-;;   (cperl-define-key (kbd "C-c C-l") 'perl-send-line))
+(defun perl--repl-hook-cperl-keys ()
+  (define-key cperl-mode-map (kbd "C-c C-c") 'perl-send-expression)
+  (define-key cperl-mode-map (kbd "C-c C-r") 'perl-send-region)
+  (define-key cperl-mode-map (kbd "C-c C-l") 'perl-send-line))
 
 
 (defun perl-send-region (start end)
