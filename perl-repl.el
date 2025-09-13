@@ -168,7 +168,7 @@ Afterwards call `perl--repl-show-and-move-to-end'."
 	  (skip-chars-backward "$@%#")))
     (error nil)))
 
-(defun perl-repl--forward-to-end-of-expr (&optional dir)
+(defun perl-repl--forward-to-end-of-expr ()
   (condition-case nil
       (progn
 	(while (or (not (perl-repl--end-of-expression-p))
