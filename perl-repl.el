@@ -1,4 +1,4 @@
-;;; perl-repl.el
+;;; perl-repl.el  -*- lexical-binding: t; -*-
 
 ;; License:
 ;; This is free software; you can redistribute it and/or modify it
