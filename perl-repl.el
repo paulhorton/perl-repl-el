@@ -67,8 +67,8 @@
 
 Unless ARG is non-nil, switches to this buffer."
   (interactive "P")
-  (let* ((perl-repl-program perl-repl-file-path)
-	 (buffer (get-buffer-create perl--repl-buffer-name)))
+  (let ((perl-repl-program perl-repl-file-path)
+	(buffer (get-buffer-create perl--repl-buffer-name)))
     (unless (comint-check-proc buffer)
       (apply 'make-comint-in-buffer perl--repl-buffer-name/raw
 	     buffer perl-repl-program perl-repl-arguments))
