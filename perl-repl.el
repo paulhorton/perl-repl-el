@@ -27,6 +27,10 @@
 ;;
 ;; Sep, 2025  Paul Horton enabled lexical binding and made minor changes
 ;;            to allow warning free byte compilation on emacs 30.
+;;
+;; Dec, 2025  Paul Horton changed default behavior of `perl-repl' to
+;;            `pop-to-buffer', like `run-octave' does.
+;;            IMHO this is more convenient.
 
 
 (require 'comint)
@@ -58,9 +62,11 @@
 (defconst perl--repl-buffer-name
   (concat "*" perl--repl-buffer-name/raw "*"))
 
-(defun perl-repl ()
-  "Run an inferior instance of a Perl REPL inside Emacs."
-  (interactive)
+(defun perl-repl (&optional arg)
+  "Run an inferior instance of a Perl REPL inside Emacs.
+
+Unless ARG is non-nil, switches to this buffer."
+  (interactive "P")
   (let* ((perl-repl-program perl-repl-file-path)
 	 (buffer (get-buffer-create perl--repl-buffer-name)))
     (unless (comint-check-proc buffer)
@@ -69,7 +75,11 @@
     (save-selected-window
       (display-buffer buffer)
       (select-window (get-buffer-window buffer))
-      (perl-repl-mode))))
+      (perl-repl-mode)
+      )
+    (unless arg
+      (pop-to-buffer buffer))
+    ))
 
 (define-derived-mode perl-repl-mode comint-mode perl--repl-buffer-name/raw
   "Major mode for `perl-repl'.
